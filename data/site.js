@@ -3,7 +3,7 @@ const t = (title, d) => ({ t: title, d });
 
 module.exports = {
   name: 'Spark Holdings Pty Limited',
-  brand: { src: '/img/brand/spark_holdings_logo_HQ_transparent.png', alt: 'Spark Holdings Pty Limited' },
+  brand: { src: '/img/brand/spark_holdings_logo_HQ_transparent.webp', alt: 'Spark Holdings Pty Limited' },
   email: 'info@sparkholdingsmw.com',
   domain: 'sparkholdingsmw.com',
   description:
@@ -45,7 +45,7 @@ module.exports = {
     {
       slug: 'security',
       name: 'Spark Security Solutions',
-      brand: { src: '/img/brand/spark_logo_full.png', alt: 'Spark Security Solutions Pty Limited' },
+      brand: { src: '/img/brand/spark_logo_full.webp', alt: 'Spark Security Solutions Pty Limited' },
       short: 'Security',
       panel: { img: '/img/security/lineup.jpg', pos: '50% 30%', text: 'Guards, technical systems and security advice.' },
       hero: { src: '/img/security/hero.jpg', alt: 'Two Spark Security guards in black uniform, one facing the camera' },
@@ -103,7 +103,7 @@ module.exports = {
     {
       slug: 'cleaning',
       name: 'Spark Cleaning Solutions',
-      brand: { src: '/img/brand/spark_cleaning_logo_HQ_transparent.png', alt: 'Spark Cleaning Solutions Pty Limited' },
+      brand: { src: '/img/brand/spark_cleaning_logo_HQ_transparent.webp', alt: 'Spark Cleaning Solutions Pty Limited' },
       short: 'Cleaning',
       panel: { img: '/img/cleaning/team.jpg', pos: '50% 40%', text: 'Cleaning, pest control, landscaping and hygiene.' },
       hero: { src: '/img/cleaning/team.jpg', alt: 'Spark Cleaning team in hard hats and high-visibility vests' },

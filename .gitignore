@@ -4,6 +4,11 @@ node_modules
 # Local Claude settings
 .claude/settings.local.json
 
+# Image optimization scripts
+optimize-images.js
+optimize-png.js
+img-optimized-backup/
+
 # Optional IDE files
 .vscode/
 *.swp
