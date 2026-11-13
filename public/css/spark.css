@@ -1,0 +1,133 @@
+/* Spark brand layer on top of the Scout template (main.css). Tokens first, then components. */
+:root {
+  --navy: #12284c;
+  --green: #84c441;
+  --green-text: #3d7a12;
+  --default-font: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --heading-font: "Archivo", "Public Sans", system-ui, sans-serif;
+  --nav-font: "Archivo", "Public Sans", system-ui, sans-serif;
+  --background-color: #ffffff;
+  --default-color: #2b3a4f;
+  --heading-color: #12284c;
+  --accent-color: #3d7a12;
+  --surface-color: #ffffff;
+  --contrast-color: #12284c;
+  --nav-color: #12284c;
+  --nav-hover-color: #3d7a12;
+  --nav-dropdown-color: #12284c;
+  --nav-dropdown-hover-color: #3d7a12;
+}
+.light-background { --background-color: #f2f6f9; --surface-color: #ffffff; }
+.dark-background {
+  --background-color: #12284c;
+  --default-color: #e8eef7;
+  --heading-color: #ffffff;
+  --surface-color: #1b355f;
+  --contrast-color: #12284c;
+  --accent-color: #84c441;
+}
+body { font-size: 1.0625rem; line-height: 1.65; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
+.skip-link { position: absolute; left: 1rem; top: -4rem; background: #fff; color: var(--navy); padding: .6rem 1rem; z-index: 2000; border-radius: 4px; }
+.skip-link:focus { top: 1rem; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+.dark-background a:focus-visible { outline-color: #fff; }
+
+/* Header */
+.header .logo { flex: 0 0 210px; padding: 6px 10px; }
+.header .logo img { display: block; width: 100%; max-width: 190px; max-height: 48px; height: 48px; margin-right: 0; object-fit: contain; object-position: left center; }
+.header .btn-getstarted, .header .btn-getstarted:focus { background: var(--green); color: var(--navy); font-weight: 700; border-radius: 6px; }
+.header .btn-getstarted:hover { background: #96d352; color: var(--navy); }
+.mobile-nav-toggle { background: none; border: 0; padding: 0; }
+.footer .logo img { max-height: 48px; width: auto; }
+.footer address p { margin: 0; }
+.display-title { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
+.prose { max-width: 62ch; }
+.text-link { color: var(--green-text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.section { padding: clamp(3rem, 6vw, 5.5rem) 0; }
+
+/* Buttons */
+.btn-spark { display: inline-block; padding: .8rem 1.4rem; min-height: 44px; border-radius: 6px; font-weight: 700; font-family: var(--nav-font); border: 2px solid var(--green); background: var(--green); color: var(--navy); transition: background .2s, color .2s; }
+.btn-spark:hover { background: #96d352; color: var(--navy); }
+.btn-spark-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+.btn-spark-ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
+.btn-spark-solid { border: 2px solid var(--navy); background: var(--navy); color: #fff; }
+.btn-spark-solid:hover { background: #1b3a6b; color: #fff; }
+
+/* Home hero: three division panels */
+.home-hero { padding: clamp(2.5rem, 5vw, 4.5rem) 0 0; background: var(--background-color); color: var(--default-color); }
+.home-hero h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); font-weight: 800; line-height: 1.05; max-width: 18ch; margin-bottom: 1rem; }
+.home-hero-lead { font-size: 1.2rem; max-width: 52ch; margin-bottom: 2.5rem; }
+.panels { display: grid; grid-template-columns: repeat(3, 1fr); height: clamp(420px, 64vh, 640px); }
+.panel { position: relative; overflow: hidden; display: flex; align-items: flex-end; color: #fff; border-top: 4px solid var(--green); }
+.panel + .panel { border-left: 2px solid var(--navy); }
+.panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.panel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,40,76,.94) 0%, rgba(18,40,76,.55) 45%, rgba(18,40,76,0) 75%); }
+.panel-body { position: relative; z-index: 1; padding: 1.75rem; display: block; }
+.panel-name { display: block; font-family: var(--heading-font); font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 700; line-height: 1.15; }
+.panel-text { display: block; margin: .4rem 0 .9rem; max-width: 30ch; }
+.panel-link { display: inline-block; font-weight: 700; color: var(--green); border-bottom: 2px solid var(--green); }
+.panel:hover { color: #fff; }
+.panel:hover img { transform: scale(1.04); }
+.panel:focus-visible { outline: 4px solid var(--green); outline-offset: -4px; }
+
+/* Division hero */
+.page-hero { padding: clamp(2.5rem, 5vw, 4.5rem) 0; }
+.page-hero-compact { padding-bottom: clamp(2rem, 4vw, 3rem); }
+.page-hero h1 { font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
+.page-hero-lead { font-size: 1.15rem; max-width: 56ch; margin-bottom: 1.75rem; }
+.page-hero-img { width: 100%; height: auto; max-height: 440px; object-fit: cover; border-radius: 6px; border-bottom: 5px solid var(--green); }
+.crumbs { margin-bottom: 1.25rem; font-size: .95rem; color: #c8d3e3; }
+.crumbs a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.media-img { object-fit: cover; max-height: 520px; }
+.rounded-1 { border-radius: 6px; }
+
+.vm { margin: 1.75rem 0 0; display: grid; gap: 1.1rem; }
+.vm > div { border-left: 4px solid var(--green); padding-left: 1rem; }
+.vm dt { font-family: var(--heading-font); font-weight: 700; color: var(--navy); }
+.vm dd { margin: 0; max-width: 60ch; }
+
+/* Service groups */
+.jump { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 2.5rem; }
+.jump a { padding: .4rem .9rem; border: 1px solid #b9c6d6; border-radius: 999px; color: var(--navy); background: #fff; font-weight: 600; font-size: .95rem; }
+.jump a:hover { border-color: var(--green-text); color: var(--green-text); }
+.group { padding: 2.5rem 0; border-top: 1px solid #d3dce7; scroll-margin-top: 90px; }
+.group:first-of-type { border-top: 0; padding-top: 0; }
+.group h3 { font-size: 1.5rem; font-weight: 700; }
+.checklist { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: .7rem; }
+.checklist-wide { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); column-gap: 2.5rem; }
+.checklist li { display: flex; gap: .7rem; align-items: baseline; }
+.checklist .bi { color: var(--green-text); font-size: 1.15rem; flex: none; }
+.checklist strong { color: var(--navy); }
+
+.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem 2.5rem; }
+.how-grid > div { border-top: 4px solid var(--green); padding-top: 1rem; }
+.how-grid h3 { font-size: 1.2rem; font-weight: 700; }
+.how-grid p { margin: 0; max-width: 46ch; }
+.how-grid-light > div { border-top-color: var(--navy); }
+
+.refs { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 860px; }
+.refs li { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr; gap: .25rem 1.5rem; padding: 1rem 0; border-top: 1px solid #d3dce7; }
+.refs li:last-child { border-bottom: 1px solid #d3dce7; }
+.refs strong { color: var(--navy); }
+.refs-person { color: #4a5a70; }
+
+.cta-band { padding: 3rem 0; background: var(--background-color); }
+.cta-band h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 700; margin: 0; max-width: 24ch; }
+
+/* Contact */
+.contact-form .form-label { font-weight: 600; color: var(--navy); }
+.contact-form .form-control, .contact-form .form-select { padding: .7rem .9rem; border-color: #aebbcc; border-radius: 6px; min-height: 44px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-control.is-invalid ~ .invalid-feedback { display: block; }
+
+@media (max-width: 991px) {
+  .panels { grid-template-columns: 1fr; height: auto; }
+  .panel { min-height: 240px; }
+  .panel + .panel { border-left: 0; border-top: 4px solid var(--green); }
+  .refs li { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+  .panel:hover img { transform: none; }
+}

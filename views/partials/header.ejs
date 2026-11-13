@@ -1,0 +1,18 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <a href="/" class="logo d-flex align-items-center me-auto" aria-label="Spark Holdings home">
+      <img src="<%= brand.src %>" alt="<%= brand.alt %>">
+    </a>
+    <nav id="navmenu" class="navmenu" aria-label="Main">
+      <ul>
+        <% site.nav.forEach(function (n) {
+             var active = n.href === '/' ? path === '/' : path.indexOf(n.href) === 0; %>
+          <li><a href="<%= n.href %>" class="<%= active ? 'active' : '' %>"<%- active ? ' aria-current="page"' : '' %>><%= n.label %></a></li>
+        <% }); %>
+        <li class="d-xl-none"><a href="/contact" class="<%= path === '/contact' ? 'active' : '' %>">Contact</a></li>
+      </ul>
+      <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navmenu"></button>
+    </nav>
+    <a class="btn-getstarted d-none d-xl-inline-block" href="/contact">Contact us</a>
+  </div>
+</header>

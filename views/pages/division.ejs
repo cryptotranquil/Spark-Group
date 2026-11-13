@@ -1,0 +1,108 @@
+<section class="page-hero dark-background">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a><span aria-hidden="true"> / </span><span aria-current="page"><%= d.short %></span></nav>
+        <h1><%= d.headline %></h1>
+        <p class="page-hero-lead"><%= d.lead %></p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn-spark" href="/contact?division=<%= d.slug %>">Ask about <%= d.short.toLowerCase() %></a>
+          <a class="btn-spark btn-spark-ghost" href="tel:<%= site.phones[0].tel %>">Call <%= site.phones[0].display %></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img class="page-hero-img" src="<%= d.hero.src %>" alt="<%= d.hero.alt %>" width="1100" height="800" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-5">
+        <img class="rounded-1 w-100 media-img" src="<%= d.intro.image.src %>" alt="<%= d.intro.image.alt %>" width="1100" height="800" loading="lazy">
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <h2 class="display-title"><%= d.intro.title %></h2>
+        <% d.intro.paras.forEach(function (p) { %><p class="prose"><%= p %></p><% }); %>
+        <dl class="vm">
+          <div><dt>Vision</dt><dd><%= d.vision %></dd></div>
+          <div><dt>Mission</dt><dd><%= d.mission %></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section light-background">
+  <div class="container">
+    <h2 class="display-title"><%= d.groupsTitle %></h2>
+    <% if (d.groups.length > 2) { %>
+    <nav class="jump" aria-label="Jump to a service">
+      <% d.groups.forEach(function (g) { %><a href="#<%= g.id %>"><%= g.title %></a><% }); %>
+    </nav>
+    <% } %>
+
+    <% d.groups.forEach(function (g, i) { %>
+    <div id="<%= g.id %>" class="group row gy-4 align-items-start">
+      <% if (g.image) { %>
+      <div class="col-lg-4 <%= i % 2 ? 'order-lg-2' : '' %>">
+        <img class="rounded-1 w-100 media-img" src="<%= g.image.src %>" alt="<%= g.image.alt %>" width="800" height="900" loading="lazy">
+      </div>
+      <% } %>
+      <div class="<%= g.image ? 'col-lg-8' : 'col-12' %>">
+        <h3><%= g.title %></h3>
+        <p class="prose"><%= g.intro %></p>
+        <ul class="checklist <%= g.image ? '' : 'checklist-wide' %>">
+          <% g.items.forEach(function (it) { %>
+          <li><i class="bi bi-check2" aria-hidden="true"></i><span><strong><%= it.t %></strong><% if (it.d) { %><span class="d-block"><%= it.d %></span><% } %></span></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="display-title"><%= d.howTitle %></h2>
+    <div class="how-grid">
+      <% d.how.forEach(function (h) { %><div><h3><%= h.h %></h3><p><%= h.p %></p></div><% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section light-background">
+  <div class="container">
+    <h2 class="display-title"><%= d.valuesTitle %></h2>
+    <div class="how-grid how-grid-light">
+      <% d.values.forEach(function (h) { %><div><h3><%= h.h %></h3><p><%= h.p %></p></div><% }); %>
+    </div>
+  </div>
+</section>
+
+<% if (d.showReferences) { %>
+<section id="references" class="section">
+  <div class="container">
+    <h2 class="display-title">Clients we have supplied</h2>
+    <p class="prose">These clients can speak about our work. Ask us for contact details when you need them.</p>
+    <ul class="refs">
+      <% site.references.forEach(function (r) { %>
+      <li><strong><%= r.client %></strong><span><%= r.service %></span><span class="refs-person">Contact: <%= r.person %></span></li>
+      <% }); %>
+    </ul>
+  </div>
+</section>
+<% } %>
+
+<section class="cta-band dark-background">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <h2>Tell the <%= d.short.toLowerCase() %> team what you need</h2>
+    <div class="d-flex flex-wrap gap-3">
+      <a class="btn-spark" href="/contact?division=<%= d.slug %>">Send an enquiry</a>
+      <a class="btn-spark btn-spark-ghost" href="mailto:<%= site.email %>">Email <%= site.email %></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= meta.title || site.name %></title>
+  <meta name="description" content="<%= meta.description || site.description %>">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark Holdings">
+  <meta property="og:title" content="<%= meta.title || site.name %>">
+  <meta property="og:description" content="<%= meta.description || site.description %>">
+  <% if (meta.image) { %><meta property="og:image" content="<%= siteUrl + meta.image %>"><% } %>
+  <link rel="icon" type="image/png" href="/img/brand/spark_emblem_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/spark.css?v=2" rel="stylesheet">
+</head>
+<body class="<%= path === '/' ? 'index-page' : 'inner-page' %>">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <%- include('partials/header') %>
+  <main id="main" class="main">
+    <%- body %>
+  </main>
+  <%- include('partials/footer') %>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+  <script src="/js/site.js" defer></script>
+</body>
+</html>

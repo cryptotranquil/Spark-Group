@@ -1,0 +1,9 @@
+<section class="section">
+  <div class="container">
+    <h1 class="display-title">That page does not exist</h1>
+    <p class="prose">The link may be old or mistyped. Try one of the divisions instead.</p>
+    <p class="d-flex flex-wrap gap-3">
+      <% site.divisions.forEach(function (d) { %><a class="btn-spark btn-spark-solid" href="/<%= d.slug %>"><%= d.name %></a><% }); %>
+    </p>
+  </div>
+</section>

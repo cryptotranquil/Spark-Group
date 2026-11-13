@@ -1,0 +1,40 @@
+<section class="home-hero dark-background">
+  <div class="container">
+    <h1>Security, cleaning and supplies from one Malawian company</h1>
+    <p class="home-hero-lead">Spark Holdings runs three divisions from offices in Lilongwe and Blantyre. Choose the one you need.</p>
+  </div>
+  <div class="panels">
+    <% site.divisions.forEach(function (d, i) { %>
+    <a class="panel" href="/<%= d.slug %>">
+      <img src="<%= d.panel.img %>" alt="" width="800" height="900" style="object-position: <%= d.panel.pos %>"<%- i === 0 ? ' fetchpriority="high"' : ' loading="lazy"' %>>
+      <span class="panel-body">
+        <strong class="panel-name"><%= d.name %></strong>
+        <span class="panel-text"><%= d.panel.text %></span>
+        <span class="panel-link">See <%= d.short.toLowerCase() %> services <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+      </span>
+    </a>
+    <% }); %>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-5"><h2 class="display-title"><%= site.about.title %></h2></div>
+      <div class="col-lg-6 offset-lg-1">
+        <% site.about.paras.forEach(function (p) { %><p class="prose"><%= p %></p><% }); %>
+        <p class="mb-0"><a class="text-link" href="/supplies#references">See clients we have worked with</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band dark-background">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+    <h2>Not sure which division you need?</h2>
+    <div class="d-flex flex-wrap gap-3">
+      <a class="btn-spark" href="/contact">Send an enquiry</a>
+      <a class="btn-spark btn-spark-ghost" href="tel:<%= site.phones[0].tel %>">Call <%= site.phones[0].display %></a>
+    </div>
+  </div>
+</section>

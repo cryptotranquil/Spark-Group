@@ -1,0 +1,38 @@
+<footer id="footer" class="footer position-relative light-background">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="/" class="logo d-flex align-items-center" aria-label="Spark Holdings home">
+          <img src="<%= brand.src %>" alt="<%= brand.alt %>">
+        </a>
+        <p class="mt-3 mb-0"><%= site.name %> and its subsidiaries, Spark Security Solutions and Spark Cleaning Solutions.</p>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Divisions</h4>
+        <ul>
+          <% site.divisions.forEach(function (d) { %><li><a href="/<%= d.slug %>"><%= d.name %></a></li><% }); %>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <% site.offices.forEach(function (o) { %>
+      <div class="col-lg-3 col-md-6 footer-contact">
+        <h4><%= o.city %> office</h4>
+        <address class="mb-0">
+          <% o.lines.forEach(function (l) { %><p class="mb-0"><%= l %></p><% }); %>
+        </address>
+      </div>
+      <% }); %>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12 footer-contact">
+        <p class="mb-1">
+          <% site.phones.forEach(function (p, i) { %><%= p.label %>: <a href="tel:<%= p.tel %>"><%= p.display %></a><%= i < site.phones.length - 1 ? '   ' : '' %><% }); %>
+        </p>
+        <p class="mb-0">Email: <a href="mailto:<%= site.email %>"><%= site.email %></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="container copyright text-center mt-4">
+    <p>© <%= new Date().getFullYear() %> <strong class="px-1 sitename"><%= site.name %></strong> All rights reserved.</p>
+  </div>
+</footer>
