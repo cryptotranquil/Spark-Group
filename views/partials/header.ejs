@@ -1,7 +1,10 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
     <a href="/" class="logo d-flex align-items-center me-auto" aria-label="Spark Holdings home">
-      <img src="<%= brand.src %>" alt="<%= brand.alt %>">
+      <picture>
+        <source srcset="<%= brand.src.replace('.webp', '.webp') %>" type="image/webp">
+        <img src="<%= brand.src.replace('.webp', '.png') %>" alt="<%= brand.alt %>">
+      </picture>
     </a>
     <nav id="navmenu" class="navmenu" aria-label="Main">
       <ul>
